@@ -70,6 +70,8 @@ with open(ROOT + 'config/config.json') as json_config_file:
     # output
     
     ALL_DETECTED_SKELETONS = par(config["output"]["ALL_DETECTED_SKELETONS"])
+    ALL_SKELETONS = par(config["output"]["SKELETONS_NPY"])
+    ALL_LABELS = par(config["output"]["LABELS_NPY"])
     IMAGES_INFO_SUMMARY = par(config["output"]["IMAGES_INFO_SUMMARY"])
     # ALL_TRAINING_LABELS = par(config["output"]["ALL_TRAINING_LABELS"])
 #############################################################################################
@@ -145,7 +147,7 @@ def main_function():
         Action_Labels[action_class] += 1
         print("{}/{}".format(i, iNumber_of_Files))
         # -- Save to npz file
-    np.savez(ALL_DETECTED_SKELETONS, all_skeletons, all_labels)
+    np.savez(ALL_DETECTED_SKELETONS, ALL_SKELETONS = all_skeletons, ALL_LABELS = all_labels)
     # np.savez(ALL_TRAINING_LABELS, all_labels)
     # print summary of training images
     images_infos = open(IMAGES_INFO_SUMMARY, 'w')

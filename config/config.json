@@ -17,6 +17,7 @@
     "IMAGES_INFO_INDEX": 0,
     "CLIP_NUM_INDEX": 1,
     "ACTION_CLASS_INEDX": 3,
+    "FEATURE_WINDOW_SIZE": 5,
 
     "Images_Recorder.py": 
     {
@@ -61,6 +62,8 @@
       "output": 
       {
         "ALL_DETECTED_SKELETONS": "data_proc/Data_Skeletons/all_detected_skeletons.npz",
+        "SKELETONS_NPY": "ALL_SKELETONS",
+        "LABELS_NPY": "ALL_LABELS",
         "IMAGES_INFO_SUMMARY": "data_proc/images_info.txt"
       }
     },
@@ -69,7 +72,9 @@
     {
       "input":
       {
-        "ALL_DETECTED_SKELETONS": "data_proc/Data_Skeletons/all_detected_skeletons.npz"
+        "ALL_DETECTED_SKELETONS": "data_proc/Data_Skeletons/all_detected_skeletons.npz",
+        "SKELETONS_NPY": "ALL_SKELETONS",
+        "LABELS_NPY": "ALL_LABELS"
       },
       "output":
       {

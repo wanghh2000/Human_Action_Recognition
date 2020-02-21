@@ -8,12 +8,14 @@
     Some of the functions are copied from 'tf-openpose-estimation' and modified.
     
     Main classes and functions:
+    Functions:
+        _set_logger():
+        _set_config():
+        _iGet_Input_Image_Size_From_String(sImage_Size):
+    
 
     Classes:
-        class Skeleton_Detector
-    Functions:
-        def -set
-    
+        Skeleton_Detector
 }
 {License_info}
 """

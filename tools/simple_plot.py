@@ -57,9 +57,10 @@ if __name__ == "__main__":
     for skeleton in skeletons_src:
         skeletons_x += skeleton[::2]
         skeletons_y += skeleton[1::2]
-    plt.plot(skeletons_x, skeletons_y, 'rx')
+    plt.plot(skeletons_x, skeletons_y, "r*")
     plt.xlim(0,1)
     plt.ylim(1,0)  
+
     plt.show() 
     sys.exit()
 __author__ = '{author}'

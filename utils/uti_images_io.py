@@ -6,16 +6,19 @@
 {
     This Module defines functions for reading images from folder, video, or Webcam
     
-    Main classes and functions:
-
-    Read:
-        class Read_Images_From_Folder
-        class Read_Images_From_Video
-        class Read_Images_From_Webcam
-    Write:
-        class Video_Writer
-        class Images_Writer
+    Main classes and functions: 
     
+    Functions:
+        test_Read_From_Video():
+        test_Read_From_Webcam():
+
+    Classes:
+        Read_Images_From_Folder
+        Read_Images_From_Video
+        Read_Images_From_Webcam
+        Video_Writer
+        Images_Writer
+        Images_Displayer   
 }
 {License_info}
 """

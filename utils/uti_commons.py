@@ -12,9 +12,10 @@
         get_time():
         convert_int_to_str(num, blank):
         get_training_images_info(valid_images_list, image_filename_format="{:05d}.jpg"):
+    
     Classes:
-        Keyboard_Processor_For_Images_Recorder(object):
-        Read_Valid_Images_And_Action_Class(object):
+        Keyboard_Processor_For_Images_Recorder
+        Read_Valid_Images_And_Action_Class
 }
 {License_info}
 """

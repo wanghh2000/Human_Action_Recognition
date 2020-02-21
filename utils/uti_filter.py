@@ -4,7 +4,14 @@
 
 """
 {
-    Define the filter to different the skeletons in one image and track them in different images and discard the invalid skeletons
+    Define the filter to different the skeletons in one image and track them in different 
+    images and discard the invalid skeletons
+    
+    Functions:
+        delete_invalid_skeletons_from_dict(skeletons_src):
+    
+    Classes:
+        Skeleton_Tracker 
 }
 {License_info}
 """
@@ -30,39 +37,7 @@ if True:
     ROOT = os.path.dirname(os.path.abspath(__file__))+"/../"
     CURR_PATH = os.path.dirname(os.path.abspath(__file__))+"/"
     sys.path.append(ROOT)
-# […]    mnist = tf.keras.datasets.mnist
 
-#     (x_train, y_train), (x_test, y_test) = mnist.load_data()
-#     x_train, x_test = x_train / 255.0, x_test / 255.0
-#     model = tf.keras.models.Sequential([
-#   tf.keras.layers.Flatten(input_shape=(28, 28)),
-#   tf.keras.layers.Dense(128, activation='relu'),
-#   tf.keras.layers.Dropout(0.2),
-#   tf.keras.layers.Dense(10, activation='softmax')])
-
-#     model.compile(optimizer='adam',
-#               loss='sparse_categorical_crossentropy',
-#               metrics=['accuracy'])
-#     model = tf.keras.models.Sequential([
-#   tf.keras.layers.Flatten(input_shape=(28, 28)),
-#   tf.keras.layers.Dense(128, activation='relu'),
-#   tf.keras.layers.Dropout(0.2),
-#   tf.keras.layers.Dense(10, activation='softmax')
-# ])
-
-# model.compile(optimizer='adam',
-#               loss='sparse_categorical_crossentropy',
-#               metrics=['accuracy'])
-# model.fit(x_train, y_train, epochs=5)
-
-# model.evaluate(x_test,  y_test, verbose=2)
-
-# class Skeleton_Tracker(object):
-    '''Skeleton Tracker: first label different skeletons in one image 
-        and then try to track them and discard the invalid skeletons in the next images
-
-    '''
-#    def __init__(self):
 def delete_invalid_skeletons_from_dict(skeletons_src):
     '''A simple function to delete invalid skeletons from the list of lists,
     thos skeletons without the key joints will be consider as invalid.
@@ -93,8 +68,6 @@ def delete_invalid_skeletons_from_dict(skeletons_src):
             # add this skeleton only when all requirements are satisfied
             skeletons_dir.append(skeleton)
     return skeletons_dir
-
-
 
 class Skeleton_Tracker(object):
     ''' A simple tracker:

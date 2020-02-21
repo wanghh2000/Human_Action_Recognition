@@ -59,29 +59,30 @@ with open(ROOT + 'config/config.json') as json_config_file:
     # input
 
     ALL_DETECTED_SKELETONS = par(config["input"]["ALL_DETECTED_SKELETONS"])
-
+    ALL_SKELETONS = par(config["input"]["SKELETONS_NPY"])
+    ALL_LABELS = par(config["input"]["LABELS_NPY"])
     # output
     
     FEATURES = par(config["output"]["FEATURES"])
 
-
-
-
-
-
-
-
 # -- Functions
 def load_numpy_array(ALL_DETECTED_SKELETONS):
+    ''' Get all saved skeletons and labels from npz file 
+    Arguments:
+        ALL_DETECTED_SKELETONS {str}: the folder path of input files, defined in config/config.json
+    Return:
+        skeletons {list of lists}: The detected an packed skeletons 
+        labels {list of lists}: The labels of skeletons
+    '''
     numpy_array = np.load(ALL_DETECTED_SKELETONS)
-    skeletons = numpy_array["arr_0"]
-    labels = numpy_array["arr_1"]
-    action_class = []
-    video_clips = []
-    for i in range(len(labels)):
-        action_class.append(labels[i][ACTION_CLASS_INEDX])
-        video_clips.append(labels[i][CLIP_NUM_INDEX])
-    return skeletons, action_class, video_clips
+    skeletons = numpy_array["ALL_SKELETONS"]
+    labels = numpy_array["ALL_LABELS"]
+    # action_class = []
+    # video_clips = []
+    # for i in range(len(labels)):
+    #     action_class.append(labels[i][ACTION_CLASS_INEDX])
+    #     video_clips.append(labels[i][CLIP_NUM_INDEX])
+    return skeletons, labels
 
 def process_features(X0, Y0, video_indices, classes):
     ''' Process features '''
@@ -117,10 +118,13 @@ def main():
 
     # Load data
     skeletons, action_class, clip_number = load_numpy_array(ALL_DETECTED_SKELETONS )
-    print(clip_number)
+    
+    skeletons = uti_skeletons_io.rebuild_skeletons(skeletons)
 if __name__ == "__main__":
     skletons, action_class, video_clips = load_numpy_array(ALL_DETECTED_SKELETONS)
     print(video_clips)
+
+
 __author__ = '{author}'
 __copyright__ = 'Copyright {year}, {project_name}'
 __credits__ = ['{credit_list}']
